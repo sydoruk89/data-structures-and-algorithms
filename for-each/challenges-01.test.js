@@ -57,7 +57,7 @@ Return the modified array.
 
 const removeOne = (num, arr) => {
   if(num % 3 === 2){
-    return arr.pop(num);
+    return arr.pop();
   }
 };
 
@@ -75,7 +75,8 @@ Write a function named removeWithForEach that produces the same output as challe
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithForEach = (arr, callback) => {
-  // Solution code here...
+  arr.forEach((item) => callback(item, arr));
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +90,12 @@ This anonymous function should accept up to three arguments: the element, the in
 ------------------------------------------------------------------------------------------------ */
 
 const removeWithAnon = (arr) => {
-  // Solution code here...
+  arr.forEach(function(element, index, array){
+    if(element % 3 === 2) {
+      array.pop()
+    }
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -110,7 +116,13 @@ This function should use forEach to populate your grocery list based on the stor
 ------------------------------------------------------------------------------------------------ */
 
 const createList = (availableItems) => {
-  // Solution code here...
+  let newList = [];
+  availableItems.forEach(function(value, index){
+    if(value.available){
+      newList.push(value.name);
+    }
+  })
+  return newList
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -128,7 +140,19 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  const outPut = [];
+  arr.forEach(value => {
+    if (value % 15 === 0){
+      outPut.push('Fizz Buzz');
+    } else if (value % 3 === 0){
+      outPut.push('Fizz');
+    } else if (value % 5 === 0){
+      outPut.push('Buzz');
+    } else {
+      outPut.push(value);
+    }
+  });
+  return outPut;
 };
 
 /* ------------------------------------------------------------------------------------------------
