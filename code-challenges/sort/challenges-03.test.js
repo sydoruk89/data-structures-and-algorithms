@@ -31,7 +31,7 @@ Write a function named sortByLength that takes in an array of strings and return
 ------------------------------------------------------------------------------------------------ */
 
 const sortByLength = (arr) => {
-  return arr.sort((a, b) => a.length - b.length);
+  return arr.sort((a, b) => a.length > b.length);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -43,7 +43,7 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 ------------------------------------------------------------------------------------------------ */
 
 const alphabetizeBetter = (arr) => {
-  return arr.sort((a,b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+  return arr.sort((a,b) => a.toLowerCase() > b.toLowerCase());
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ Here is an example of the input:
 ------------------------------------------------------------------------------------------------ */
 
 const sortByPrice = (arr) => {
-  return arr.sort((a, b) => a.price - b.price);
+  return arr.sort((a, b) => a.price > b.price);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -70,11 +70,10 @@ Write a function named sortNumbersByLength that takes in an array of numbers and
 
 For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 ------------------------------------------------------------------------------------------------ */
-
 const sortNumbersByLength = (arr) => {
-  return arr.sort( (a,b) => a.toString().length - b.toString().length)
+  return arr.sort( (a,b) => a.toString().length > b.toString().length);
 };
-
+// do not need to convertagain to integer
 /*-----------------------------------------------------------------------------------------------
 CHALLENGE 7
 
@@ -145,7 +144,20 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (arr) => {
-  // Solution code here...
+  const weekDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  arr = arr.sort((a, b) => {
+    let x, y;
+    weekDays.forEach((day, index) => {
+      if(day == a.dayOfWeek){
+        x = index;
+      }
+      if (day == b.dayOfWeek){
+        y = index
+      }
+    })
+    return x > y;
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
