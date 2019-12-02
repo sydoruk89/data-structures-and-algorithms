@@ -151,7 +151,8 @@ let lowestWeeklyTemperatureData = [
 ];
 
 const lowestWeeklyAverage = (weather) => {
-  // Solution code here...
+  let newArr = weather.map(el => el.reduce((acc, val) => acc + val, 0) / el.length);
+  return Math.min(...newArr);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -166,9 +167,7 @@ The function should parse the string as rows and columns and compute the sum of 
 For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 ------------------------------------------------------------------------------------------------ */
 
-const excel = (str) => {
-  // Solution code here...
-};
+const excel = (str) => str.split('\n').map(str => str.split(',').reduce( (sum, el) => sum + Number(el), 0));
 
 /* ------------------------------------------------------------------------------------------------
 TESTS
