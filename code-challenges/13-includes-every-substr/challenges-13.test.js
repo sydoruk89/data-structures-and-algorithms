@@ -24,7 +24,13 @@ For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach( el => {
+    if(el.includes(':)')){
+      newArr.push(el);
+    }
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -35,9 +41,7 @@ Write a function named standardizePhoneNumbers that takes in an array of phone n
 For example, (123) 456-7890 returns 1234567890
 ------------------------------------------------------------------------------------------------ */
 
-const standardizePhoneNumbers = (arr) => {
-  // Solution code here...
-};
+const standardizePhoneNumbers = (arr) => arr.map( str => str.substring(1, 4) + str.substring(6, 9) + str.substring(10) );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -48,7 +52,14 @@ For example, 'abcdefg' returns 'bdf'
 ------------------------------------------------------------------------------------------------ */
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let oddChars = '';
+
+  for (let i=0; i < str.length; i++) {
+    if (i % 2 > 0) {
+      oddChars = oddChars + str[i];
+    }
+  }
+  return oddChars;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,7 +69,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 ------------------------------------------------------------------------------------------------ */
 
 const allHappy = (arr) => {
-  // Solution code here...
+  return arr.every( str => str.includes(':)') )
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -67,9 +78,7 @@ CHALLENGE 6
 Write a function named findAnything that takes in an array of strings, along with a target string. Return an array containing only those strings from the original array that contain the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findAnything = (arr, target) => {
-  // Solution code here...
-};
+const findAnything = (arr, target) => arr.filter( el => el.includes(target) );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -77,9 +86,7 @@ CHALLENGE 7
 Write a function named findEvery that takes in an array of strings, along with a target string. Return a Boolean based on whether or not every string in the array contains the target string.
 ------------------------------------------------------------------------------------------------ */
 
-const findEvery = (arr, target) => {
-  // Solution code here...
-};
+const findEvery = (arr, target) => arr.every( str => str.includes(target) );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -93,9 +100,7 @@ Return a two-dimensional array with the same roster, but where anyone whose name
 For example, [['Brook Testing', 'Actual Person'], ['Human Person', 'Brook again', 'still Brook']] returns [['Actual Person'], ['Human Person']]
 ------------------------------------------------------------------------------------------------ */
 
-const unenrollBrook = (arr) => {
-  // Solution code here...
-};
+const unenrollBrook = (arr) => arr.map( course => course.filter( name => !name.includes('Brook') ) );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -120,9 +125,7 @@ For example, ['Tuesday', 'Monday', 'Wednesday and Thursday', 'Tuesday 2', 'Thurs
 
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-const sortByDay = (arr) => {
-  // Solution code here...
-};
+const sortByDay = (arr) => daysOfWeek.map( day => arr.filter( el => el.includes(day) ) );
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
