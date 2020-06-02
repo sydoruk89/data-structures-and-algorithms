@@ -1,6 +1,6 @@
 # Python data-structures-and-algorithms
 
-## Author Roman Sydoruk
+## Author: Roman Sydoruk
 
 ## Table of contents
 
