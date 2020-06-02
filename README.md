@@ -4,6 +4,6 @@
 
 ## Table of contents
 
-Reverse an array
+* [Reverse an array](https://github.com/sydoruk89/data-structures-and-algorithms/tree/master/py-code-challenges/array_reverse)
 
 Insert Shift an array
