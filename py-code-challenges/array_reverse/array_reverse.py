@@ -3,6 +3,6 @@ def reverseArray(arr):
 
 #Stretch goal
 def reverseArray(arr):
-    for in in range(len(arr)):
+    for i in range(len(arr)):
         arr[i], arr[-i -1] = arr[-i-1], arr[1]
     return arr
